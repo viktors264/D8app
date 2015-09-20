@@ -1,0 +1,47 @@
+<template name="personsList">
+  <div class="personList">
+    <h3>People List</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+              <td>ID</td>
+              <td>Name</td>
+              <td>Age</td>
+              <td>Is Active</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each person}}
+            <tr>
+              <td>{{_id}}</td>
+              <td>{{name}}</td>
+              <td>{{age}}</td>
+              <td><input type="checkbox" name="isActive" class="isActiveCheckbox" checked="{{isActive}}"></td>
+              <td>
+                <div class="btn-group" style="vertical-align:middle">
+                  <button type="button" class="viewButton btn btn-default" id="viewButton">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"> View </span>
+                  </button>
+
+                  <button type="button" class="editButton btn btn-info" id="editButton">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"> Edit </span>
+                  </button>
+
+                  <button type="button" class="removeButton btn btn-danger" id="removeButton">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"> Delete </span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="totalPersons">
+          Total: {{totalPersons}} persons in database
+        </div>
+        <button type=button class="createPersonButton btn btn-primary" id="createPersonButton">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"> Create</span>
+        </button>
+      </div>
+</template>
